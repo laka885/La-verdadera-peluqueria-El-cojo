@@ -84,12 +84,13 @@
             // 
             btnAgregar.FlatStyle = FlatStyle.System;
             btnAgregar.ForeColor = Color.Lime;
-            btnAgregar.Location = new Point(23, 275);
+            btnAgregar.Location = new Point(30, 288);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(177, 58);
             btnAgregar.TabIndex = 4;
-            btnAgregar.Text = "Agregar";
+            btnAgregar.Text = "Añadir al carrito";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click_1;
             // 
             // lstCarrito
             // 

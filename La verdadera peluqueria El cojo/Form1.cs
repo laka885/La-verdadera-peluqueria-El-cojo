@@ -78,5 +78,34 @@ namespace PeluqueriaElCojo
             // carrito.Clear();
             // lstCarrito.Items.Clear();
         }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+         
+            var nuevoServicio = new Degradado
+            {
+                Nombre = cmbTipoServicio.Text,
+                PrecioBase = nudPrecio.Value,
+                Nivel = 1
+            };
+
+            
+            var errores = Validador.Validar(nuevoServicio);
+
+            if (errores.Count == 0)
+            {
+              
+                carrito.Add(nuevoServicio);
+                lstCarrito.Items.Add($"{nuevoServicio.Nombre} - RD$ {nuevoServicio.CalcularPrecio():N2}");
+
+                
+            }
+            else
+            {
+               
+                MessageBox.Show(string.Join("\n", errores), "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
+    
 }
