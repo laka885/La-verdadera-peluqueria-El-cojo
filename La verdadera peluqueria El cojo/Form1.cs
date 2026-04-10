@@ -51,5 +51,40 @@ namespace PeluqueriaElCojo
             carrito.Clear();
             lstCarrito.Items.Clear();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTipoServicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstCarrito_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtbTicket_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

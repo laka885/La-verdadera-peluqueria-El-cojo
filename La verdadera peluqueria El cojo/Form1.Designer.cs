@@ -36,67 +36,81 @@
             lstCarrito = new ListBox();
             rtbTicket = new RichTextBox();
             btnFacturar = new Button();
+            Datos_Venta = new GroupBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
+            Datos_Venta.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // txtCliente
             // 
-            txtCliente.Location = new Point(51, 43);
+            txtCliente.Location = new Point(6, 242);
             txtCliente.Name = "txtCliente";
-            txtCliente.Size = new Size(125, 27);
+            txtCliente.Size = new Size(238, 27);
             txtCliente.TabIndex = 0;
             // 
             // cmbBarbero
             // 
             cmbBarbero.FormattingEnabled = true;
-            cmbBarbero.Location = new Point(37, 104);
+            cmbBarbero.Location = new Point(6, 71);
             cmbBarbero.Name = "cmbBarbero";
-            cmbBarbero.Size = new Size(151, 28);
+            cmbBarbero.Size = new Size(238, 28);
             cmbBarbero.TabIndex = 1;
             // 
             // cmbTipoServicio
             // 
             cmbTipoServicio.FormattingEnabled = true;
-            cmbTipoServicio.Location = new Point(37, 147);
+            cmbTipoServicio.Location = new Point(6, 157);
             cmbTipoServicio.Name = "cmbTipoServicio";
-            cmbTipoServicio.Size = new Size(151, 28);
+            cmbTipoServicio.Size = new Size(238, 28);
             cmbTipoServicio.TabIndex = 2;
+            cmbTipoServicio.SelectedIndexChanged += cmbTipoServicio_SelectedIndexChanged;
             // 
             // nudPrecio
             // 
-            nudPrecio.Location = new Point(37, 213);
+            nudPrecio.Location = new Point(24, 222);
             nudPrecio.Name = "nudPrecio";
-            nudPrecio.Size = new Size(150, 27);
+            nudPrecio.Size = new Size(209, 27);
             nudPrecio.TabIndex = 3;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(122, 260);
+            btnAgregar.FlatStyle = FlatStyle.System;
+            btnAgregar.ForeColor = Color.Lime;
+            btnAgregar.Location = new Point(38, 267);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(94, 29);
+            btnAgregar.Size = new Size(177, 58);
             btnAgregar.TabIndex = 4;
-            btnAgregar.Text = "button1";
+            btnAgregar.Text = "Finalizar venta";
             btnAgregar.UseVisualStyleBackColor = true;
             // 
             // lstCarrito
             // 
             lstCarrito.FormattingEnabled = true;
-            lstCarrito.Location = new Point(284, 109);
+            lstCarrito.Location = new Point(24, 32);
             lstCarrito.Name = "lstCarrito";
-            lstCarrito.Size = new Size(150, 104);
+            lstCarrito.Size = new Size(209, 184);
             lstCarrito.TabIndex = 5;
+            lstCarrito.SelectedIndexChanged += lstCarrito_SelectedIndexChanged;
             // 
             // rtbTicket
             // 
-            rtbTicket.Location = new Point(530, 43);
+            rtbTicket.Location = new Point(6, 38);
             rtbTicket.Name = "rtbTicket";
-            rtbTicket.Size = new Size(125, 120);
+            rtbTicket.Size = new Size(211, 287);
             rtbTicket.TabIndex = 6;
             rtbTicket.Text = "";
+            rtbTicket.TextChanged += rtbTicket_TextChanged;
             // 
             // btnFacturar
             // 
-            btnFacturar.Location = new Point(375, 232);
+            btnFacturar.Location = new Point(438, 265);
             btnFacturar.Name = "btnFacturar";
             btnFacturar.Size = new Size(94, 29);
             btnFacturar.TabIndex = 7;
@@ -104,24 +118,94 @@
             btnFacturar.UseVisualStyleBackColor = true;
             btnFacturar.Click += btnFacturar_Click;
             // 
+            // Datos_Venta
+            // 
+            Datos_Venta.BackColor = SystemColors.ControlLight;
+            Datos_Venta.Controls.Add(textBox3);
+            Datos_Venta.Controls.Add(textBox2);
+            Datos_Venta.Controls.Add(textBox1);
+            Datos_Venta.Controls.Add(cmbBarbero);
+            Datos_Venta.Controls.Add(cmbTipoServicio);
+            Datos_Venta.Controls.Add(txtCliente);
+            Datos_Venta.Location = new Point(12, 43);
+            Datos_Venta.Name = "Datos_Venta";
+            Datos_Venta.Size = new Size(250, 372);
+            Datos_Venta.TabIndex = 8;
+            Datos_Venta.TabStop = false;
+            Datos_Venta.Text = "Datos de venta";
+            Datos_Venta.Enter += groupBox1_Enter;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Menu;
+            textBox1.Location = new Point(82, 38);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(63, 27);
+            textBox1.TabIndex = 3;
+            textBox1.Text = "Barbero";
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.Menu;
+            textBox2.Location = new Point(57, 124);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(121, 27);
+            textBox2.TabIndex = 4;
+            textBox2.Text = "Tipo de servicio";
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = SystemColors.Menu;
+            textBox3.Location = new Point(48, 205);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(140, 27);
+            textBox3.TabIndex = 5;
+            textBox3.Text = "Nombre del Cliente";
+            textBox3.TextChanged += textBox3_TextChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = SystemColors.ControlLight;
+            groupBox1.Controls.Add(lstCarrito);
+            groupBox1.Controls.Add(nudPrecio);
+            groupBox1.Controls.Add(btnAgregar);
+            groupBox1.Location = new Point(277, 43);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(269, 372);
+            groupBox1.TabIndex = 9;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Carrito";
+            // 
+            // groupBox2
+            // 
+            groupBox2.BackColor = SystemColors.ControlLight;
+            groupBox2.Controls.Add(rtbTicket);
+            groupBox2.Location = new Point(565, 43);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(223, 372);
+            groupBox2.TabIndex = 10;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Factura y detalles";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(btnFacturar);
-            Controls.Add(rtbTicket);
-            Controls.Add(lstCarrito);
-            Controls.Add(btnAgregar);
-            Controls.Add(nudPrecio);
-            Controls.Add(cmbTipoServicio);
-            Controls.Add(cmbBarbero);
-            Controls.Add(txtCliente);
+            Controls.Add(Datos_Venta);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)nudPrecio).EndInit();
+            Datos_Venta.ResumeLayout(false);
+            Datos_Venta.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -134,5 +218,11 @@
         private ListBox lstCarrito;
         private RichTextBox rtbTicket;
         private Button btnFacturar;
+        private GroupBox Datos_Venta;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 }
