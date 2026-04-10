@@ -37,9 +37,9 @@
             rtbTicket = new RichTextBox();
             btnFacturar = new Button();
             Datos_Venta = new GroupBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
             textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
@@ -70,24 +70,25 @@
             cmbTipoServicio.Name = "cmbTipoServicio";
             cmbTipoServicio.Size = new Size(238, 28);
             cmbTipoServicio.TabIndex = 2;
-            cmbTipoServicio.SelectedIndexChanged += cmbTipoServicio_SelectedIndexChanged;
             // 
             // nudPrecio
             // 
             nudPrecio.Location = new Point(24, 222);
+            nudPrecio.Maximum = new decimal(new int[] { 5000, 0, 0, 0 });
             nudPrecio.Name = "nudPrecio";
             nudPrecio.Size = new Size(209, 27);
             nudPrecio.TabIndex = 3;
+            nudPrecio.Value = new decimal(new int[] { 300, 0, 0, 0 });
             // 
             // btnAgregar
             // 
             btnAgregar.FlatStyle = FlatStyle.System;
             btnAgregar.ForeColor = Color.Lime;
-            btnAgregar.Location = new Point(38, 267);
+            btnAgregar.Location = new Point(23, 275);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(177, 58);
             btnAgregar.TabIndex = 4;
-            btnAgregar.Text = "Finalizar venta";
+            btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             // 
             // lstCarrito
@@ -97,7 +98,6 @@
             lstCarrito.Name = "lstCarrito";
             lstCarrito.Size = new Size(209, 184);
             lstCarrito.TabIndex = 5;
-            lstCarrito.SelectedIndexChanged += lstCarrito_SelectedIndexChanged;
             // 
             // rtbTicket
             // 
@@ -106,15 +106,14 @@
             rtbTicket.Size = new Size(211, 287);
             rtbTicket.TabIndex = 6;
             rtbTicket.Text = "";
-            rtbTicket.TextChanged += rtbTicket_TextChanged;
             // 
             // btnFacturar
             // 
-            btnFacturar.Location = new Point(438, 265);
+            btnFacturar.Location = new Point(24, 275);
             btnFacturar.Name = "btnFacturar";
-            btnFacturar.Size = new Size(94, 29);
+            btnFacturar.Size = new Size(209, 84);
             btnFacturar.TabIndex = 7;
-            btnFacturar.Text = "button1";
+            btnFacturar.Text = "Facturar";
             btnFacturar.UseVisualStyleBackColor = true;
             btnFacturar.Click += btnFacturar_Click;
             // 
@@ -123,6 +122,7 @@
             Datos_Venta.BackColor = SystemColors.ControlLight;
             Datos_Venta.Controls.Add(textBox3);
             Datos_Venta.Controls.Add(textBox2);
+            Datos_Venta.Controls.Add(btnAgregar);
             Datos_Venta.Controls.Add(textBox1);
             Datos_Venta.Controls.Add(cmbBarbero);
             Datos_Venta.Controls.Add(cmbTipoServicio);
@@ -133,27 +133,6 @@
             Datos_Venta.TabIndex = 8;
             Datos_Venta.TabStop = false;
             Datos_Venta.Text = "Datos de venta";
-            Datos_Venta.Enter += groupBox1_Enter;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.Menu;
-            textBox1.Location = new Point(82, 38);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(63, 27);
-            textBox1.TabIndex = 3;
-            textBox1.Text = "Barbero";
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = SystemColors.Menu;
-            textBox2.Location = new Point(57, 124);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(121, 27);
-            textBox2.TabIndex = 4;
-            textBox2.Text = "Tipo de servicio";
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox3
             // 
@@ -163,14 +142,31 @@
             textBox3.Size = new Size(140, 27);
             textBox3.TabIndex = 5;
             textBox3.Text = "Nombre del Cliente";
-            textBox3.TextChanged += textBox3_TextChanged;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.Menu;
+            textBox2.Location = new Point(57, 124);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(121, 27);
+            textBox2.TabIndex = 4;
+            textBox2.Text = "Tipo de servicio";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Menu;
+            textBox1.Location = new Point(82, 38);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(63, 27);
+            textBox1.TabIndex = 3;
+            textBox1.Text = "Barbero";
             // 
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.ControlLight;
             groupBox1.Controls.Add(lstCarrito);
+            groupBox1.Controls.Add(btnFacturar);
             groupBox1.Controls.Add(nudPrecio);
-            groupBox1.Controls.Add(btnAgregar);
             groupBox1.Location = new Point(277, 43);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(269, 372);
@@ -195,9 +191,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Controls.Add(btnFacturar);
             Controls.Add(Datos_Venta);
+            Controls.Add(groupBox1);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)nudPrecio).EndInit();
