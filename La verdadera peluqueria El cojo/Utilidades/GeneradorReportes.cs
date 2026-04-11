@@ -7,10 +7,10 @@ namespace PeluqueriaElCojo.Utilidades
 {
     public static class GeneradorReportes
     {
-        // Requisito: Uso de Genéricos <T> para procesar cualquier objeto facturable
+        
         public static string GenerarTicket<T>(List<T> items, string cliente, string barbero) where T : IFacturable
         {
-            // Requisito: Uso de StringBuilder para eficiencia en manejo de strings
+          
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("      PELUQUERÍA EL COJO      ");
             sb.AppendLine("==============================");

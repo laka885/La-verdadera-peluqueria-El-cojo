@@ -10,7 +10,7 @@ namespace PeluqueriaElCojo.Modelos
         [Rango(0, 5000, MensajeError = "Precio fuera de rango")]
         public decimal PrecioBase { get; set; }
 
-        // Polimorfismo: las clases hijas podrán cambiar este comportamiento
+        // Polimorfismo 
         public virtual decimal CalcularPrecio() => PrecioBase;
 
         public string GenerarLineaRecibo()

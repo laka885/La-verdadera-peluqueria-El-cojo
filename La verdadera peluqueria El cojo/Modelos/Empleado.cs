@@ -9,7 +9,7 @@ namespace PeluqueriaElCojo.Modelos
         public string Nombre { get; set; }
         public decimal VentasAcumuladas { get; set; }
 
-        // Requisito: Ordenar por ventas de mayor a menor
+        // Ordenar por ventas de mayor a menor
         public int CompareTo(Empleado otro)
         {
             if (otro == null) return 1;

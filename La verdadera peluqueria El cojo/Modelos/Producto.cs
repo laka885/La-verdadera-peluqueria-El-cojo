@@ -16,7 +16,7 @@ namespace PeluqueriaElCojo.Modelos
 
         public int Stock { get; set; }
 
-        // Requisito: Detectar duplicados por código
+        // Detectar duplicados por código
         public bool Equals(Producto otro)
         {
             if (otro == null) return false;
