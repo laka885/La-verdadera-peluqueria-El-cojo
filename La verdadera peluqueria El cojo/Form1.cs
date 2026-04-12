@@ -14,6 +14,8 @@ namespace PeluqueriaElCojo
 
         List<string> historialVentas = new List<string>();
 
+        decimal granTotalDia = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -63,26 +65,34 @@ namespace PeluqueriaElCojo
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            if (carrito.Count == 0) return;
 
-            if (carrito.Count == 0)
+           
+            decimal totalVentaActual = 0;
+            foreach (var item in carrito)
             {
-                MessageBox.Show("El carrito está vacío. Agregue un servicio primero.", "Atención");
-                return;
+                totalVentaActual += item.CalcularPrecio();
             }
 
+           
+            granTotalDia += totalVentaActual;
 
-            string ticketFinal = GeneradorReportes.GenerarTicket(carrito, txtCliente.Text, cmbBarbero.Text);
+            // 3. Generamos el ticket
+            string ticket = GeneradorReportes.GenerarTicket(carrito, txtCliente.Text, cmbBarbero.Text);
+            rtbTicket.Text = ticket;
 
+            
+            string registro = $"[{DateTime.Now.ToShortTimeString()}] Barbero: {cmbBarbero.Text} | Cliente: {txtCliente.Text} | Total: RD$ {totalVentaActual:N2}";
+            historialVentas.Add(registro);
 
-            rtbTicket.Text = ticketFinal;
-
-
-
-            historialVentas.Add($"Cliente: {txtCliente.Text} - Total: {rtbTicket.Text.Split('$')[1].Trim()}");
+           
+            carrito.Clear();
+            lstCarrito.Items.Clear();
+            txtCliente.Clear();
         }
 
-       
-         private void btnAgregar_Click_1(object sender, EventArgs e)
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
         {
           
             decimal precioSeleccionado = nudPrecio.Value;
@@ -137,18 +147,23 @@ namespace PeluqueriaElCojo
         {
             if (historialVentas.Count == 0)
             {
-                MessageBox.Show("No hay ventas registradas todavía.", "Historial Vacío");
+                MessageBox.Show("No hay ventas registradas.");
                 return;
             }
 
-
             rtbTicket.Clear();
-            rtbTicket.Text = "======= HISTORIAL DE VENTAS =======\n\n";
+            rtbTicket.Text = "        REPORTE DE VENTAS TOTALES\n";
+            rtbTicket.Text += "========================================\n\n";
 
-            foreach (string ticket in historialVentas)
+            foreach (string venta in historialVentas)
             {
-                rtbTicket.Text += ticket + "\n" + new string('-', 30) + "\n";
+                rtbTicket.Text += venta + "\n";
             }
+
+            rtbTicket.Text += "\n========================================\n";
+            // AQUÍ SE MUESTRA LA SUMA TOTAL
+            rtbTicket.Text += $"   GRAN TOTAL DEL DÍA: RD$ {granTotalDia:N2}\n";
+            rtbTicket.Text += "========================================";
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
