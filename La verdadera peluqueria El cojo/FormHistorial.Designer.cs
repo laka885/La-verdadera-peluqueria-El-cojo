@@ -35,9 +35,12 @@
             // 
             // dgvVentas
             // 
+            dgvVentas.AllowUserToAddRows = false;
+            dgvVentas.AllowUserToDeleteRows = false;
             dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVentas.Location = new Point(122, 123);
             dgvVentas.Name = "dgvVentas";
+            dgvVentas.ReadOnly = true;
             dgvVentas.Size = new Size(240, 150);
             dgvVentas.TabIndex = 0;
             // 
@@ -49,7 +52,7 @@
             btnVolver.TabIndex = 1;
             btnVolver.Text = "Atras";
             btnVolver.UseVisualStyleBackColor = true;
-           
+            btnVolver.Click += btnVolver_Click;
             // 
             // FormHistorial
             // 

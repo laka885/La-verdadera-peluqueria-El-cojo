@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,19 +20,49 @@ namespace La_verdadera_peluqueria_El_cojo
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            // Una validación sencilla para que pruebes el flujo
-            if (txtUsuario.Text == "julian" && txtPassword.Text == "1234")
+            try
             {
-                MessageBox.Show("¡Acceso concedido!");
+                // 1. Conectamos usando tu clase Conexion
+                using (SqlConnection cn = Conexion.Conectar())
+                {
+                    cn.Open();
 
-                // Aquí es donde llamarás al siguiente formulario cuando lo crees
-                // Por ahora déjalo así para que no te dé error
+                    // 2. Buscamos al usuario en la tabla de SQL
+                    string query = "SELECT COUNT(*) FROM Usuarios WHERE Usuario = @user AND Clave = @pass";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+
+                    // 3. Pasamos lo que escribiste en los TextBox
+                    cmd.Parameters.AddWithValue("@user", txtUsuario.Text);
+                    cmd.Parameters.AddWithValue("@pass", txtPassword.Text);
+
+                    int existe = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    if (existe > 0)
+                    {
+                        // ¡ÉXITO!
+                        MessageBox.Show("Acceso concedido. ¡Bienvenido!");
+
+                        // 4. CREAMOS EL MENU Y LO MOSTRAMOS
+                        FormMenu principal = new FormMenu();
+                        principal.Show();
+
+                        // 5. OCULTAMOS EL LOGIN
+                        this.Hide();
+                    }
+                    else
+                    {
+                        // FALLO
+                        MessageBox.Show("Usuario o contraseña incorrectos. Verifica en SQL.");
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Usuario o clave incorrectos. (Usa julian y 1234)");
+                // Por si el "punto" de la conexión falla
+                MessageBox.Show("Error de base de datos: " + ex.Message);
             }
         }
+
+
     }
-    
 }

@@ -41,6 +41,7 @@
             btnEntrar.TabIndex = 0;
             btnEntrar.Text = "Entrar";
             btnEntrar.UseVisualStyleBackColor = true;
+            btnEntrar.Click += btnEntrar_Click;
             // 
             // txtPassword
             // 
