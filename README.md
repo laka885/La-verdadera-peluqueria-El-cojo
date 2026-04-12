@@ -8,20 +8,36 @@ El proyecto consiste en un sistema de facturacion para la PeluqueriaElCojo, El s
 
 
 # Conceptos implementados
-Interfaces: IFacturable.
 
-Polimorfismo: List<IFacturable>.
+El sistema Peluquería El Cojo fue desarrollado utilizando una arquitectura funcional enfocada en la integridad de los datos y la optimización de la interfaz de usuario.
 
-Reflection: PropertyInfo y GetCustomAttributes.
+Desarrollo en C# (.NET Framework)
+Programación Orientada a Objetos (POO): Uso de clases para estructurar la lógica del negocio y la gestión de conexiones.
 
-Atributos Personalizados: Metadatos de validación.
+Control de Flujo entre Formularios: Implementación de navegación jerárquica entre ventanas (Login, Menú, Facturación, Historial) mediante la gestión de instancias de la clase Form.
 
-Generics: Colecciones List<T>.
+Manejo de Eventos y Ciclo de Vida: Control de los estados de la aplicación a través de los eventos Load, Click y FormClosed, garantizando la liberación de recursos y el cierre correcto de procesos.
 
-Encapsulamiento: Propiedades y modelos de datos.
+Persistencia de Datos (SQL Server)
+Arquitectura ADO.NET: Implementación de objetos SqlConnection, SqlCommand y SqlDataAdapter para la comunicación persistente con el motor de base de datos.
 
-WinForms: UI responsiva con Anchors y persistencia en memoria.
+Diseño de Base de Datos Relacional: Estructuración de tablas con llaves primarias, tipos de datos definidos y propiedades de auto-incremento (IDENTITY) para el registro de transacciones.
 
+Manipulación de Datos con T-SQL: Ejecución de sentencias INSERT para el almacenamiento de registros y SELECT con criterios de ordenamiento para la recuperación de información en tiempo real.
+
+Diseño de Interfaz y Experiencia de Usuario (UX)
+Visualización de Datos Avanzada: Configuración de controles DataGridView con propiedades de solo lectura, formatos de moneda específicos y ajuste automático de ancho de columnas para mayor legibilidad.
+
+Restricciones de Interfaz: Aplicación de estilos de borde fijos (FixedSingle) y desactivación de controles de maximización para asegurar la integridad del diseño en diferentes resoluciones.
+
+Manejo de Excepciones y Retroalimentación: Uso de bloques Try-Catch para la captura de errores y MessageBox para la validación de acciones del usuario.
+
+Herramientas y Entorno de Ejecución
+Entorno de Desarrollo: Microsoft Visual Studio 2022.
+
+Motor de Datos: SQL Server Management Studio (SSMS).
+
+Entorno de Pruebas: Acer Nitro V15 (NVIDIA RTX 40 Series).
 #
 ENLACE DE VIDEO DE YOUTUBE EXPLICANDO SU FUNCIONAMIENTO
 #
