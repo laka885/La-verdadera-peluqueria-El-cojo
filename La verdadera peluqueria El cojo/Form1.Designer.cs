@@ -44,6 +44,7 @@
             groupBox2 = new GroupBox();
             NuevaVenta = new Button();
             historial = new Button();
+            btnVolver = new Button();
             ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
             Datos_Venta.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -232,18 +233,33 @@
             historial.UseVisualStyleBackColor = true;
             historial.Click += historial_Click;
             // 
+            // btnVolver
+            // 
+            btnVolver.Location = new Point(154, 6);
+            btnVolver.Name = "btnVolver";
+            btnVolver.Size = new Size(82, 22);
+            btnVolver.TabIndex = 13;
+            btnVolver.Text = "Salir";
+            btnVolver.UseVisualStyleBackColor = true;
+            btnVolver.Click += btnVolver_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(btnVolver);
             Controls.Add(historial);
             Controls.Add(NuevaVenta);
             Controls.Add(groupBox2);
             Controls.Add(Datos_Venta);
             Controls.Add(groupBox1);
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MaximumSize = new Size(716, 377);
+            MinimumSize = new Size(716, 377);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)nudPrecio).EndInit();
@@ -272,5 +288,6 @@
         private GroupBox groupBox2;
         private Button NuevaVenta;
         private Button historial;
+        private Button btnVolver;
     }
 }

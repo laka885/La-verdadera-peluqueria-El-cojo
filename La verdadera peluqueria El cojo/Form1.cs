@@ -1,3 +1,4 @@
+using La_verdadera_peluqueria_El_cojo;
 using PeluqueriaElCojo.Modelos; 
 using PeluqueriaElCojo.Utilidades;
 using System;
@@ -118,13 +119,13 @@ namespace PeluqueriaElCojo
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
-          
+
             decimal precioSeleccionado = nudPrecio.Value;
 
             var nuevoServicio = new Degradado
             {
                 Nombre = cmbTipoServicio.Text,
-                PrecioBase = precioSeleccionado, 
+                PrecioBase = precioSeleccionado,
                 Nivel = 1
             };
 
@@ -138,9 +139,9 @@ namespace PeluqueriaElCojo
 
 
         }
-           
-        
-           
+
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -203,6 +204,21 @@ namespace PeluqueriaElCojo
         private void nudPrecio_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            {
+                DialogResult resp = MessageBox.Show("¿Seguro que desea volver al menú? Se perderán los datos no guardados.",
+                                                   "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resp == DialogResult.Yes)
+                {
+                    FormMenu menu = new FormMenu();
+                    menu.Show();
+                    this.Close();
+                }
+            }
         }
     }
 

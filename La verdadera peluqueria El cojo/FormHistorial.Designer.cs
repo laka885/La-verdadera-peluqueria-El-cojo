@@ -38,17 +38,17 @@
             dgvVentas.AllowUserToAddRows = false;
             dgvVentas.AllowUserToDeleteRows = false;
             dgvVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvVentas.Location = new Point(122, 123);
+            dgvVentas.Location = new Point(208, 44);
             dgvVentas.Name = "dgvVentas";
             dgvVentas.ReadOnly = true;
-            dgvVentas.Size = new Size(240, 150);
+            dgvVentas.Size = new Size(562, 339);
             dgvVentas.TabIndex = 0;
             // 
             // btnVolver
             // 
-            btnVolver.Location = new Point(89, 371);
+            btnVolver.Location = new Point(37, 195);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(75, 23);
+            btnVolver.Size = new Size(129, 52);
             btnVolver.TabIndex = 1;
             btnVolver.Text = "Atras";
             btnVolver.UseVisualStyleBackColor = true;
@@ -61,6 +61,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(btnVolver);
             Controls.Add(dgvVentas);
+            MaximizeBox = false;
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
             Name = "FormHistorial";
             Text = "Historial de ventas";
             ((System.ComponentModel.ISupportInitialize)dgvVentas).EndInit();
