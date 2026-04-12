@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace La_verdadera_peluqueria_El_cojo
+{
+    public partial class FormHistorial : Form
+    {
+        public FormHistorial()
+        {
+            InitializeComponent();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            
+            FormMenu menuPrincipal = new FormMenu();
+
+            menuPrincipal.Show();
+
+          
+            this.Close();
+        }
+    }
+}
